@@ -13142,7 +13142,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13164,7 +13164,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13249,7 +13249,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">gender</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;gender&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;student_id&#39;</span><span class="p">:</span><span class="s1">&#39;count&#39;</span><span class="p">})</span>
@@ -13284,15 +13284,15 @@ male           243
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Proportion of students that are female</span>
 <span class="c1"># Proportion of students that are male</span>
 
 <span class="n">total</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;student_id&#39;</span><span class="p">])</span>
-<span class="n">pct</span> <span class="o">=</span> <span class="n">gender</span><span class="o">/</span><span class="n">total</span><span class="o">*</span><span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pct</span><span class="p">)</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">gender</span><span class="o">/</span><span class="n">total</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13311,8 +13311,8 @@ male           243
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>        student_id
 gender            
-female        51.4
-male          48.6
+female       0.514
+male         0.486
 </pre>
 </div>
 </div>
@@ -13323,15 +13323,14 @@ male          48.6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for females</span>
 
 <span class="n">f_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
 <span class="n">f_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">admission_female</span> <span class="o">=</span> <span class="n">f_admitted</span><span class="o">/</span><span class="n">f_applied</span><span class="o">*</span><span class="mi">100</span>
-
+<span class="n">admission_female</span> <span class="o">=</span> <span class="n">f_admitted</span><span class="o">/</span><span class="n">f_applied</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">admission_female</span><span class="p">)</span>
 </pre></div>
 
@@ -13349,7 +13348,7 @@ male          48.6
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>28.7937743191
+<pre>0.287937743191
 </pre>
 </div>
 </div>
@@ -13360,14 +13359,14 @@ male          48.6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for males</span>
 
 <span class="n">m_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
 <span class="n">m_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="n">admission_male</span> <span class="o">=</span> <span class="n">m_admitted</span><span class="o">/</span><span class="n">m_applied</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">admission_male</span> <span class="o">=</span> <span class="n">m_admitted</span><span class="o">/</span><span class="n">m_applied</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">admission_male</span><span class="p">)</span>
 </pre></div>
@@ -13386,7 +13385,7 @@ male          48.6
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>48.5596707819
+<pre>0.485596707819
 </pre>
 </div>
 </div>
@@ -13404,53 +13403,148 @@ male          48.6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What proportion of female students are majoring in physics?</span>
-<span class="n">admission_female</span>
+
+<span class="n">f_physics</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;Physics&#39;</span><span class="p">]</span>
+<span class="n">f_physics_total</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">f_physics_prop</span> <span class="o">=</span> <span class="n">f_physics</span><span class="o">/</span><span class="n">f_physics_total</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">f_physics_prop</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.120622568093
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What proportion of male students are majoring in physics?</span>
+<span class="n">m_physics</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;Physics&#39;</span><span class="p">]</span>
+<span class="n">m_physics_total</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">m_physics_prop</span> <span class="o">=</span> <span class="n">m_physics</span><span class="o">/</span><span class="n">m_physics_total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m_physics_prop</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.925925925926
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for female physics majors</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">major</span> <span class="o">==</span> <span class="s1">&#39;Physics&#39;</span><span class="p">)</span>
+
+<span class="n">f_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">f_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_f_phy</span> <span class="o">=</span> <span class="n">f_admitted</span><span class="o">/</span><span class="n">f_applied</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_f_phy</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.741935483871
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for male physics majors</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">major</span> <span class="o">==</span> <span class="s1">&#39;Physics&#39;</span><span class="p">)</span>
+
+<span class="n">m_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">m_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_m_phy</span> <span class="o">=</span> <span class="n">m_admitted</span><span class="o">/</span><span class="n">m_applied</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_m_phy</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.515555555556
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13464,52 +13558,144 @@ male          48.6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What proportion of female students are majoring in chemistry?</span>
+<span class="n">f_chem</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;Chemistry&#39;</span><span class="p">]</span>
+<span class="n">f_chem_total</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;female&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">f_chem_prop</span> <span class="o">=</span> <span class="n">f_chem</span><span class="o">/</span><span class="n">f_chem_total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f_chem_prop</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>87.9377431907
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># What proportion of male students are majoring in chemistry?</span>
+<span class="n">m_chem</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="s1">&#39;Chemistry&#39;</span><span class="p">]</span>
+<span class="n">m_chem_total</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">==</span><span class="s1">&#39;male&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">major</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">m_chem_prop</span> <span class="o">=</span> <span class="n">m_chem</span><span class="o">/</span><span class="n">m_chem_total</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m_chem_prop</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>7.40740740741
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for female chemistry majors</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;female&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">major</span> <span class="o">==</span> <span class="s1">&#39;Chemistry&#39;</span><span class="p">)</span>
+
+<span class="n">f_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">f_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_f_chem</span> <span class="o">=</span> <span class="n">f_admitted</span><span class="o">/</span><span class="n">f_applied</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_f_chem</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.225663716814
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for male chemistry majors</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">major</span> <span class="o">==</span> <span class="s1">&#39;Chemistry&#39;</span><span class="p">)</span>
+
+<span class="n">m_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">m_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_m_chem</span> <span class="o">=</span> <span class="n">m_admitted</span><span class="o">/</span><span class="n">m_applied</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_m_chem</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.111111111111
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13523,13 +13709,72 @@ male          48.6
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for physics majors</span>
+<span class="n">phy_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">major</span><span class="o">==</span><span class="s1">&#39;Physics&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">phy_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">major</span><span class="o">==</span><span class="s1">&#39;Physics&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_phy</span> <span class="o">=</span> <span class="n">phy_admitted</span><span class="o">/</span><span class="n">phy_applied</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_phy</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.54296875
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for chemistry majors</span>
+<span class="n">chem_admitted</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">major</span><span class="o">==</span><span class="s1">&#39;Chemistry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="kc">True</span><span class="p">]</span>
+<span class="n">chem_applied</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">major</span><span class="o">==</span><span class="s1">&#39;Chemistry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">admitted</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">admission_chem</span> <span class="o">=</span> <span class="n">chem_admitted</span><span class="o">/</span><span class="n">chem_applied</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">admission_chem</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.217213114754
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13539,7 +13784,7 @@ male          48.6
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Admission rate for chemistry majors</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
